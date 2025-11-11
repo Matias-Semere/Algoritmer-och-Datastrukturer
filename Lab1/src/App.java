@@ -1,4 +1,4 @@
-package se.hig.aod.lab0;
+package Lab1.src;
 
 public class App {
     
