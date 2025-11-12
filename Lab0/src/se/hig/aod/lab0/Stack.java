@@ -20,7 +20,7 @@ public interface Stack<E>
      * Checks if this stack is empty.
      * 
      * @return true if stack is empty, false otherwise.
-     */
+     */  
     public boolean isEmpty();
     
     /**

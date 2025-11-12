@@ -11,7 +11,7 @@ public class LinkedList<T> implements List<T> {
     }
 
     public boolean isEmpty() {
-        return size == 0;
+        return head == null;
     }
 
     public void clear() {
@@ -51,7 +51,8 @@ public class LinkedList<T> implements List<T> {
     }
 
     public T removeFirst() {
-        if (head == null) throw new ListEmptyException("Den är ju tom ");
+        if (head == null)
+            throw new ListEmptyException("Den är ju tom ");
         T data = head.data;
         head = head.next;
         size--;
@@ -59,18 +60,45 @@ public class LinkedList<T> implements List<T> {
     }
 
     public T removeLast() {
-        return null;
+        if (isEmpty())
+            throw new ListEmptyException("Den är ju tom ");
+
+        if (head.next == null) {
+            T data = head.data;
+            head = null;
+            size--;
+            return data;
+        }
+
+        Node<T> current = head;
+
+        while (current.next.next != null) {
+            current = current.next;
+        }
+        T data = current.next.data;
+        current.next = null;
+        size--;
+        return data;
     }
 
     public T getFirst() {
-        return null;
+        if (isEmpty())
+            throw new ListEmptyException("Den är ju tom ");
+        return head.data;
     }
 
     public T getLast() {
-        return null;
+        if (isEmpty())
+            throw new ListEmptyException("Den är ju tom ");
+
+        Node<T> current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        return current.data;
     }
 
-    class Node<T> {
+    static class Node<T> {
         T data;
         Node<T> next;
     }
