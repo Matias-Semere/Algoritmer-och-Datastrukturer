@@ -3,12 +3,11 @@ package se.hig.aod.lab0;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 
-
 class LinkedListTest {
 
 	private LinkedList<Integer> listUnderTest;
-	private final int[] fixture = {1, 2, 3, 4, 5};
-	
+	private final int[] fixture = { 1, 2, 3, 4, 5 };
+
 	/**
 	 * Resets list to a new empty LinkedList-instance
 	 * before each test method is executed.
@@ -17,7 +16,7 @@ class LinkedListTest {
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
-		listUnderTest = new LinkedList<Integer>(); 
+		listUnderTest = new LinkedList<Integer>();
 	}
 
 	/**
@@ -37,7 +36,7 @@ class LinkedListTest {
 	public void testEmptyListIsEmpty() {
 		assertTrue(listUnderTest.isEmpty(), "An empty list instance should not contain any item");
 	}
-	
+
 	/**
 	 * Test method for {@link se.hig.aod.lab0.LinkedList#isEmpty()}.
 	 */
@@ -46,7 +45,7 @@ class LinkedListTest {
 		initializeList();
 		assertFalse(listUnderTest.isEmpty(), "A list instance containing elements should not be empty");
 	}
-	
+
 	/**
 	 * Test method for {@link se.hig.aod.lab0.LinkedList#clear()}.
 	 */
@@ -55,7 +54,7 @@ class LinkedListTest {
 		listUnderTest.clear();
 		assertTrue(listUnderTest.isEmpty(), "An empty list instance that is cleared should not contain any item");
 	}
-	
+
 	/*
 	 * Skriv fler test-metoder själv........................
 	 * 
@@ -64,24 +63,25 @@ class LinkedListTest {
 	 * 
 	 * 
 	 */
-	
+
 	/**
 	 * Test method for {@link se.hig.aod.lab0.LinkedList#getFirst()}.
 	 */
 	@Test
 	public void testGetFirstOnEmptyList() {
-		assertThrows(ListEmptyException.class, () -> listUnderTest.getFirst() , "GetFirst() on empty list should throw ListEmptyException");
+		assertThrows(ListEmptyException.class, () -> listUnderTest.getFirst(),
+				"GetFirst() on empty list should throw ListEmptyException");
 	}
-	
+
 	/**
 	 * Test method for {@link se.hig.aod.lab0.LinkedList#getFirst()}.
 	 */
 	@Test
 	public void testGetFirstOnInitializedList() {
 		initializeList();
-		assertEquals(1, listUnderTest.getFirst() , "GetFirst() should return first element in list");
+		assertEquals(1, listUnderTest.getFirst(), "GetFirst() should return first element in list");
 	}
-	
+
 	/*
 	 * Skriv fler test-metoder själv........................
 	 * 
@@ -91,9 +91,7 @@ class LinkedListTest {
 	 * 
 	 * 
 	 */
-	
 
-	
 	private void initializeList() {
 		for (int i = 0; i < fixture.length; i++) {
 			listUnderTest.insertLast(fixture[i]);
