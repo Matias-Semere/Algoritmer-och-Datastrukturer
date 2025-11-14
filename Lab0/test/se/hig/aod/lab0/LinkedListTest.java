@@ -82,15 +82,17 @@ class LinkedListTest {
 		assertEquals(1, listUnderTest.getFirst(), "GetFirst() should return first element in list");
 	}
 
-	/*
-	 * Skriv fler test-metoder själv........................
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 */
+	@Test
+	public void testtoStringReverseRecursive() {
+		initializeList();
+		assertEquals("[5,4,3,2,1]", listUnderTest.toStringReverseRecursive());
+	}
+
+	@Test
+	public void testtoStringRecursive() {
+		initializeList();
+		assertEquals("[1,2,3,4,5]", listUnderTest.toStringRecursive());
+	}
 
 	private void initializeList() {
 		for (int i = 0; i < fixture.length; i++) {

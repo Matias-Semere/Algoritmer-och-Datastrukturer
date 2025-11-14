@@ -1,6 +1,6 @@
 package se.hig.aod.lab0;
 
-public class LinkedList<T> implements List<T> {
+public class LinkedList<T> implements PrintableList<T> {
 
     private Node head;
     private int size;
@@ -108,5 +108,32 @@ public class LinkedList<T> implements List<T> {
             this.data = data;
             this.next = null;
         }
+    }
+
+    @Override
+    public String toStringRecursive() {
+        String svar = "[";
+        for (int i = 0; i < size; i++) {
+            if (head.data != null) {
+                svar += head.data + ",";
+                head = head.next;
+            }
+        }
+        svar = svar.substring(0, svar.length() - 1);
+        return svar + "]";
+    }
+
+    @Override
+    public String toStringReverseRecursive() {
+        String svar = "[";
+        String temp = toStringRecursive();
+        temp = temp.substring(1, temp.length() - 1);
+        String[] split = temp.split(",");
+
+        for (int i = split.length - 1; i >= 0; i--) {
+            svar += split[i] + ",";
+        }
+        svar = svar.substring(0, svar.length() - 1);
+        return svar + "]";
     }
 }
