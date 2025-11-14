@@ -113,7 +113,7 @@ public class LinkedList<T> implements PrintableList<T> {
     @Override
     public String toStringRecursive() {
         if (isEmpty())
-            return "";
+            return "[]";
         String svar = "[";
         for (int i = 0; i < size; i++) {
             if (head.data != null) {
@@ -128,7 +128,7 @@ public class LinkedList<T> implements PrintableList<T> {
     @Override
     public String toStringReverseRecursive() {
         if (isEmpty())
-            return null;
+            return "[]";
         String svar = "[";
         String temp = toStringRecursive();
         temp = temp.substring(1, temp.length() - 1);
