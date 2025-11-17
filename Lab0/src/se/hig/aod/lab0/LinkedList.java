@@ -112,32 +112,22 @@ public class LinkedList<T> implements PrintableList<T> {
 
     @Override
     public String toStringRecursive() {
-        if (isEmpty())
-            return "[]";
-        String svar = "[";
-        for (int i = 0; i < size; i++) {
-            if (head.data != null) {
-                svar += head.data + ",";
-                head = head.next;
-            }
-        }
-        svar = svar.substring(0, svar.length() - 1);
-        return svar + "]";
+        return "[" + toStringRec(head, false) + "]";
     }
 
     @Override
     public String toStringReverseRecursive() {
-        if (isEmpty())
-            return "[]";
-        String svar = "[";
-        String temp = toStringRecursive();
-        temp = temp.substring(1, temp.length() - 1);
-        String[] split = temp.split(",");
+        return "[" + toStringRec(head, true) + "]";
+    }
 
-        for (int i = split.length - 1; i >= 0; i--) {
-            svar += split[i] + ",";
-        }
-        svar = svar.substring(0, svar.length() - 1);
-        return svar + "]";
+    private String toStringRec(Node n, boolean reverse) {
+        if (n == null)
+            return "";
+        if (n.next == null)
+            return n.data.toString();
+
+        if (reverse) return toStringRec(n.next, true) + "," + n.data;
+        
+        return n.data + "," + toStringRec(n.next, false);
     }
 }
