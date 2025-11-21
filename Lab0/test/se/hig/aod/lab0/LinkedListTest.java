@@ -52,7 +52,8 @@ class LinkedListTest {
 	@Test
 	public void testClearOnEmptyList() {
 		listUnderTest.clear();
-		assertTrue(listUnderTest.isEmpty(), "An empty list instance that is cleared should not contain any item");
+		assertTrue(listUnderTest.isEmpty(),
+				"An empty list instance that is cleared should not contain any item");
 	}
 
 	/*
